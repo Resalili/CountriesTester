@@ -3,8 +3,8 @@ import json
 countris = {}
 def load_countris_json():
   with open('countris.json', 'r') as file:
-    countris = json.load(file)
-    file.close()
+    return json.load(file)
+
 
 
 def test(countris: dict):
@@ -17,8 +17,9 @@ def test(countris: dict):
     else:
       print(f"Ні, столиця {country[0]} це {country[1]}")
   print(f"Ти набрав {score}/{len(countris)}")
+
 if __name__ == "__main__":
-  load_countris_json()
+  countris = load_countris_json()
   while True:
     if input("Введіть 'q' щоб вийти з програми або Ентер щоб продовжити: ") == "q":
       break
